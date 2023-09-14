@@ -11,4 +11,4 @@ Displaying gif images as a table<br>
 Full screen display of the selected gif
 
 ### 🔥 App overview
-
+https://github.com/khrystyna-dev/gif-app/assets/57113308/881330a5-9ba3-4a3e-aa93-3f2e87276840
