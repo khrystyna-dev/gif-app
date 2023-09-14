@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -90,7 +91,12 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<DataResult?>, response: Response<DataResult?>) {
                 val body = response.body()
                 gifs.clear()
-                body?.res?.let { gifs.addAll(it) }
+                body?.res?.let {
+                    gifs.addAll(it)
+                    if (gifs.isEmpty()) {
+                        Snackbar.make(recyclerView, "No GIFs found for this request!", Snackbar.LENGTH_LONG).show()
+                    }
+                }
                 adapter.notifyDataSetChanged()
             }
 
